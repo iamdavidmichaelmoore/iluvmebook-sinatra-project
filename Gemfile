@@ -7,7 +7,7 @@ gem 'rake'
 gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
-# gem 'pg', '0.20'
+gem 'pg', '0.20'
 
 group :development do
   gem "tux"
