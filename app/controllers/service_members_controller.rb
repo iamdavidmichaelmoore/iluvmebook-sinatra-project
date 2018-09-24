@@ -2,6 +2,7 @@ class ServiceMembersController < ApplicationController
 
   # GET: /service_members
   get "/service_members" do
+    @service_member = ServiceMember.all
     erb :"/service_members/index.html"
   end
 
