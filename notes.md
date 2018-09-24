@@ -15,6 +15,9 @@ How to drop a single Postgres table in a Ruby on Rails Heroku app - https://stac
 
 Ruby on Rails: Migrations Guide - https://guides.rubyonrails.org/v3.2/migrations.html
 
+Rails Migrations to Add a Column and Change Column Type - https://codequizzes.wordpress.com/2013/06/06/rails-migrations-to-add-a-column-and-change-column-type/
+
+
 Notes to self:
 
 -Go to the 'Activity' tab to see the Release Log.

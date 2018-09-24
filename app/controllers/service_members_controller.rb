@@ -2,7 +2,7 @@ class ServiceMembersController < ApplicationController
 
   # GET: /service_members
   get "/service_members" do
-    @service_member = ServiceMember.all
+    @service_members = ServiceMember.all
     erb :"/service_members/index.html"
   end
 
@@ -13,6 +13,7 @@ class ServiceMembersController < ApplicationController
 
   # POST: /service_members
   post "/service_members" do
+    @service_member = ServiceMember.create(param[:service_member])
     redirect "/service_members"
   end
 

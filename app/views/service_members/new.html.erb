@@ -1,1 +1,16 @@
 <h1>Insert the form to create a new instance of your model.</h1>
+<form action="/service_members" method="POST">
+  <p>
+    <input name="service_member[first_name]" type="text" />
+    <input name="service_member[last_name]" type="text" />
+  </p>
+  <p>Email:
+    <input name="service_member[email]" type="text" />
+  </p>
+  <p>Password:
+    <input name="service_member[password]" type="password" />
+  </p>
+  <p>
+    <input type="submit" value="Create Account" />
+  </p>
+</form>
