@@ -13,7 +13,7 @@ class ServiceMembersController < ApplicationController
 
   # POST: /service_members
   post "/service_members" do
-    @service_member = ServiceMember.create(param[:service_member])
+    @service_member = ServiceMember.create(params[:service_member])
     redirect "/service_members"
   end
 

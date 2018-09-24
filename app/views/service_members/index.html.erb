@@ -1,1 +1,6 @@
-<h1>This is the Model's index page.</h1>
+<h1>Service Member Accounts</h1>
+<% @service_members.each do |sm| %>
+  <h4><%= sm.first_name %> <%= sm.last_name %></h4>
+  <p><%= sm.email %></p>
+  <br></br>
+<% end %>
