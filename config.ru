@@ -5,6 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 run ApplicationController
+use AwardsController
 use BranchesController
 use BooksController
 use ServiceMembersController

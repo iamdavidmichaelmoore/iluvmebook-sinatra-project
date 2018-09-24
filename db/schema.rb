@@ -11,16 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180924011714) do
+ActiveRecord::Schema.define(version: 20180924211752) do
 
-  create_table "books", force: :cascade do |t|
+  create_table "awards", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "books", force: :cascade do |t|
+    t.string "book_name"
+    t.string "unit_name"
+    t.string "security_clearance_level"
+    t.string "firstline_supervisor_name"
+    t.string "firstline_supervistor_email"
+    t.string "firstline_supervistor_phone"
+    t.string "commander_name"
+    t.string "commander_email"
+    t.string "commander_phone"
+  end
+
   create_table "branches", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "service_members", force: :cascade do |t|
