@@ -19,6 +19,9 @@ class ServiceMembersController < ApplicationController
 
   # GET: /service_members/5
   get "/service_members/:id" do
+    first_name = params[:id].split("-").first.capitalize
+    last_name = params[:id].split("-").last.capitalize
+    @service_member = ServiceMember.find_by(first_name: first_name, last_name: last_name)
     erb :"/service_members/show.html"
   end
 
