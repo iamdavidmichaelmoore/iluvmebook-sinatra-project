@@ -11,6 +11,7 @@ gem 'pg', '0.20'
 gem 'rails_12factor'
 gem 'foreman'
 gem 'dotenv'
+gem 'solargraph'
 
 group :development do
   gem "tux"

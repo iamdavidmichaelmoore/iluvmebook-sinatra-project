@@ -17,6 +17,8 @@ Ruby on Rails: Migrations Guide - https://guides.rubyonrails.org/v3.2/migrations
 
 Rails Migrations to Add a Column and Change Column Type - https://codequizzes.wordpress.com/2013/06/06/rails-migrations-to-add-a-column-and-change-column-type/
 
+Anatomy of a Migration - https://guides.rubyonrails.org/v3.2/migrations.html
+
 
 Notes to self:
 
