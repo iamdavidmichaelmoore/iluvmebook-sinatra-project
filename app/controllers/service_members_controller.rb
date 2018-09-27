@@ -2,8 +2,12 @@ class ServiceMembersController < ApplicationController
 
   # GET: /service_members
   get "/service_members" do
-    @service_members = ServiceMember.all
+    @sms = ServiceMember.all
     erb :"/service_members/index.html"
+  end
+
+  get "/service_members/" do
+    redirect "/service_members"
   end
 
   # GET: /service_members/new
@@ -14,17 +18,17 @@ class ServiceMembersController < ApplicationController
   # POST: /service_members
   post "/service_members" do
     @sm = ServiceMember.create(params[:service_member])
-    session[:message] = "#{@sm.first_name} is logged in."
+    session[:message] = "Hi, #{@sm.first_name}!"
+    session[:id] = @sm.id
     redirect "/service_members"
   end
 
   # GET: /service_members/5
   get "/service_members/:id" do
-    @message = session[:message]
-    if @message
-      first_name = params[:id].split("-").first.capitalize
-      last_name = params[:id].split("-").last.capitalize
-      @service_member = ServiceMember.find_by(first_name: first_name, last_name: last_name)
+    @sm = ServiceMember.find_by_slug(params[:id])
+    @message = session 
+    binding.pry
+    if @message && @message[:id] == @sm.id
       erb :"/service_members/show.html"
     else
       redirect '/service_members'
@@ -33,6 +37,7 @@ class ServiceMembersController < ApplicationController
 
   # GET: /service_members/5/edit
   get "/service_members/:id/edit" do
+    @message = session
     erb :"/service_members/edit.html"
   end
 
@@ -47,7 +52,7 @@ class ServiceMembersController < ApplicationController
   end
 
   # LOGOUT: /service?members/logout
-  get '/logout' do
+  get '/service_members/logout' do
     session.clear
   end
 end

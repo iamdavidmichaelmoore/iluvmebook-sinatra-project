@@ -1,6 +1,6 @@
 <h1>Service Member Accounts</h1>
-<% @service_members.each do |sm| %>
-  <h4><a href="service_members/#{@}"<%= sm.first_name %> <%= sm.last_name %></h4>
+<% @sms.each do |sm| %>
+<h4><a href="service_members/<%= sm.slug %>"><%= sm.first_name %> <%= sm.last_name %></a></h4>
   <p><%= sm.email %></p>
   <br></br>
 <% end %>

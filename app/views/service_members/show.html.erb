@@ -1,4 +1,5 @@
 <% if @message %>
-  <p><%= @message %></p>
-  <h1><%= @service_member.first_name %> <%= @service_member.last_name %>'s iLuvmebook</h1>
+  <p><%= @message[:message] %></p>
+  <h1><%= @sm.first_name %> <%= @sm.last_name %>'s iLoveMeBook</h1>
+  <a href="/service_members/logout">Log out</a>
 <% end %>
