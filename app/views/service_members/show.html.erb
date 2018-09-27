@@ -1,1 +1,4 @@
-<h1><%= @service_member.first_name %> <%= @service_member.last_name %>'s iLuvmebook</h1>
+<% if @message %>
+  <p><%= @message %></p>
+  <h1><%= @service_member.first_name %> <%= @service_member.last_name %>'s iLuvmebook</h1>
+<% end %>

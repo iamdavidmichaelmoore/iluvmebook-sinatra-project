@@ -13,16 +13,22 @@ class ServiceMembersController < ApplicationController
 
   # POST: /service_members
   post "/service_members" do
-    @service_member = ServiceMember.create(params[:service_member])
+    @sm = ServiceMember.create(params[:service_member])
+    session[:message] = "#{@sm.first_name} is logged in."
     redirect "/service_members"
   end
 
   # GET: /service_members/5
   get "/service_members/:id" do
-    first_name = params[:id].split("-").first.capitalize
-    last_name = params[:id].split("-").last.capitalize
-    @service_member = ServiceMember.find_by(first_name: first_name, last_name: last_name)
-    erb :"/service_members/show.html"
+    @message = session[:message]
+    if @message
+      first_name = params[:id].split("-").first.capitalize
+      last_name = params[:id].split("-").last.capitalize
+      @service_member = ServiceMember.find_by(first_name: first_name, last_name: last_name)
+      erb :"/service_members/show.html"
+    else
+      redirect '/service_members'
+    end
   end
 
   # GET: /service_members/5/edit
@@ -38,5 +44,10 @@ class ServiceMembersController < ApplicationController
   # DELETE: /service_members/5/delete
   delete "/service_members/:id/delete" do
     redirect "/service_members"
+  end
+
+  # LOGOUT: /service?members/logout
+  get '/logout' do
+    session.clear
   end
 end
