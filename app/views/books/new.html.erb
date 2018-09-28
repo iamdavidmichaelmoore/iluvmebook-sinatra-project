@@ -1,1 +1,48 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h1>Create New iLoveMeBook</h1>
+<form action="/books" method="POST">
+  <p>
+    <label for="book[book_name]">Book Name:</label>
+    <input name="book[book_name]" type="text" />
+  </p>
+  <p>
+    <label for="book[unit_name]">Unit Name:</label>
+    <input name="book[unit_name]" type="text" />
+  </p>
+  <p>
+    <label for="book[security_clearance_level]">Security Clearance Level:</label>
+    <%# <input name="service_member[email]" type="text" /> %>
+    <select>
+      <option value="none">None</option>
+      <option value="confidential">Confidential</option>
+      <option value="secret">Secret</option>
+      <option value="top_secret">Top Secret</option>
+    </select>
+  </p>
+  <p>
+    <label for="book[first_line_supervisor_name]">First Line Supervisor Name:</label>
+    <input name="book[first_line_supervisotr_name]" type="text" />
+  </p>
+  <p>
+    <label for="book[first_line_supervistor_email]">First Line Supervisor Email:</label>
+    <input name="book[first_line_supervistor_email]" type="text" />
+  </p>
+  <p>
+    <label for="book[first_line_supervistor_phone]">First Line Supervisor Phone:</label>
+    <input name="book[first_line_supervistor_phone]" type="text"/>
+  </p>
+  <p>
+    <label for="book[commander_name]">Commander Name:</label>
+    <input name="book[commander_name]" type="text" />
+  </p>
+  <p>
+    <label for="book[commander_email]">Commander Email:</label>
+    <input name="book[commander_email]" type="text"/>
+  </p>
+  <p>
+    <label for="book[commander_phone]">Commander Phone:</label>
+    <input name="book[commander_phone]" type="text"/>
+  </p>
+  <p>
+    <input type="submit" value="Create Book" />
+  </p>
+</form>

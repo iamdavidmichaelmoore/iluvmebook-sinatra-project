@@ -12,6 +12,7 @@ class BooksController < ApplicationController
 
   # POST: /books
   post "/books" do
+    binding.pry
     redirect "/books"
   end
 

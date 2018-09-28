@@ -1,6 +1,9 @@
 <% if @logged_in %>
-  <p>Welcome, <%= @sm.first_name %>!</p>
-  <h1><%= @sm.first_name %> <%= @sm.last_name %>'s iLoveMeBook</h1>
+  <p>Welcome back, <%= @sm.first_name %>!</p>
+  <h1>My iLoveMeBook</h1>
+  <form action="/books/new">
+    <input type="submit" value="New Book">
+  </form>
   <form action="/service_members/logout">
     <input type="submit" value="Log Out" />
   </form>
