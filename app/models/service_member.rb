@@ -12,6 +12,10 @@ class ServiceMember < ActiveRecord::Base
     self.concatenated_name.split(" ").join("-").downcase
   end
 
+  def deslugged
+    self.first_name + " " + self.last_name
+  end
+
   def self.find_by_slug(slugged_name)
     self.all.detect {|n| n.slug == slugged_name}
   end

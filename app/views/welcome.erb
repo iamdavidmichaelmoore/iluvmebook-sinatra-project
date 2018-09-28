@@ -3,7 +3,7 @@
   <div class="col-md-8 col-md-offset-2">
     <h2>Log In</h2>
 
-    <form action="/service_members" method="POST">
+    <form action="/service_members/login" method="POST">
       <p>
         <label for="service_member[email]">Email:</label>
         <input name="service_member[email]" type="text" />
@@ -16,6 +16,9 @@
         <input type="submit" value="Login"/>
         </p>
     </form>
+    <form action="/service_members/signup">
+          <input type="submit" value="Sign Up"/>
+        </form>
 
   </div>
 </div>
