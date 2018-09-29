@@ -21,7 +21,8 @@ class BooksController < ApplicationController
       firstline_supervisor_phone: params[:book][:firstline_supervisor_phone],
       commander_name: params[:book][:commander_name],
       commander_email: params[:book][:commander_email],
-      commander_phone: params[:book][:commander_phone]
+      commander_phone: params[:book][:commander_phone],
+      current_rank: params[:book][:current_rank]
     )
     if book.save && logged_in?
       book.branch = Branch.find_or_create_by(name: params[:book][:branch])
@@ -33,9 +34,11 @@ class BooksController < ApplicationController
   # GET: /books/5
   get "/books/:id" do
     @book = Book.find_by(id: params[:id])
-    if logged_in? && current_user.id == @book.service_member_id
+    if @book && logged_in? && current_user.id == @book.service_member_id
       @logged_in = session[:user_id]
       erb :"/books/show.html"
+    elsif @book.nil? && logged_in?
+      redirect "/service_members/#{current_user.slug}"
     else
       redirect "/service_members/login"
     end
