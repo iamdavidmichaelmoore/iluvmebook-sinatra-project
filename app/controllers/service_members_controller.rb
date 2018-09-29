@@ -51,10 +51,13 @@ class ServiceMembersController < ApplicationController
   end
 
   get "/service_members/:id" do
-    @sm = ServiceMember.find_by_slug(params[:id])      
-    if logged_in? && current_user.id == @sm.id
+    @sm = ServiceMember.find_by_slug(params[:id]) 
+
+    if @sm && logged_in? && current_user.id == @sm.id
       @logged_in = session[:user_id]
       erb :"/service_members/show.html"
+    elsif @sm.nil? && logged_in?
+      redirect "/service_members/#{current_user.slug}"
     else
       redirect "/service_members/login"
     end
