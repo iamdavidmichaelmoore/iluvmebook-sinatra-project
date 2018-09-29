@@ -11,4 +11,9 @@ Dotenv.load
 
 set :database_file, "./database.yml"
 
+module  Concerns
+end
+
 require_all 'app'
+require_all 'lib'
+

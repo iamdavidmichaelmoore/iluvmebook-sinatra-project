@@ -86,11 +86,5 @@ class ServiceMembersController < ApplicationController
     def current_user
      ServiceMember.find(session[:user_id])
     end
-
-    def welcome
-      if logged_in?
-        "Hi!, #{current_user.first_name}!"
-      end
-    end
   end
 end

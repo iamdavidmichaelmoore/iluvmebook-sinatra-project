@@ -5,30 +5,46 @@
     <input name="book[book_name]" type="text" />
   </p>
   <p>
+  <label for="book[branch]">Branches:</label>
+  <select name="book[branch]">
+    <option value="Air Force">Air Force</option>
+    <option value="Air Force Reserve">Air Force Reserve</option>
+    <option value="Air National Guard">Air National Guard</option>
+    <option value="Army">Army</option>
+    <option value="Army Reserve">Army Reserve</option>
+    <option value="Army National Guard">Army National Guard</option>
+    <option value="Coast Guard">Coast Guard</option>
+    <option value="Coast Guard Reserve">Coast Guard Reserve</option>
+    <option value="Marine Corps">Marine Corps</option>
+    <option value="Marine Corps Reserve">Marine Corps Reserve</option>
+    <option value="Navy">Navy</option>
+    <option value="Navy Reserve">Navy Reserve</option>
+  </select>
+  </p>
+  <p>
     <label for="book[unit_name]">Unit Name:</label>
     <input name="book[unit_name]" type="text" />
   </p>
   <p>
     <label for="book[security_clearance_level]">Security Clearance Level:</label>
-    <%# <input name="service_member[email]" type="text" /> %>
     <select name="book[security_clearance_level]">
-      <option value="none">None</option>
-      <option value="confidential">Confidential</option>
-      <option value="secret">Secret</option>
-      <option value="top_secret">Top Secret</option>
+      <option value="None">None</option>
+      <option value="Confidential">Confidential</option>
+      <option value="Secret">Secret</option>
+      <option value="Top Secret">Top Secret</option>
     </select>
   </p>
   <p>
-    <label for="book[first_line_supervisor_name]">First Line Supervisor Name:</label>
-    <input name="book[first_line_supervisor_name]" type="text" />
+    <label for="book[firstline_supervisor_name]">First Line Supervisor Name:</label>
+    <input name="book[firstline_supervisor_name]" type="text" />
   </p>
   <p>
-    <label for="book[first_line_supervisor_email]">First Line Supervisor Email:</label>
-    <input name="book[first_line_supervisor_email]" type="text" />
+    <label for="book[firstline_supervisor_email]">First Line Supervisor Email:</label>
+    <input name="book[firstline_supervisor_email]" type="text" />
   </p>
   <p>
-    <label for="book[first_line_supervisor_phone]">First Line Supervisor Phone:</label>
-    <input name="book[first_line_supervisor_phone]" type="text"/>
+    <label for="book[firstline_supervisor_phone]">First Line Supervisor Phone:</label>
+    <input name="book[firstline_supervisor_phone]" type="text"/>
   </p>
   <p>
     <label for="book[commander_name]">Commander Name:</label>

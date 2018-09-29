@@ -1,6 +1,11 @@
 <% if @logged_in %>
   <p>Welcome back, <%= @sm.first_name %>!</p>
   <h1>My iLoveMeBook</h1>
+  <ul>
+  <% @sm.books.each do |book| %>
+      <li><a href="/books/<%= book.id %>"><%= book.book_name %></a></li>
+  <% end %>
+  </ul>
   <form action="/books/new">
     <input type="submit" value="New Book">
   </form>

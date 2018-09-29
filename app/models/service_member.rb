@@ -1,4 +1,9 @@
-class ServiceMember < ActiveRecord::Base
+  require_relative 'concerns/findable'
+
+  class ServiceMember < ActiveRecord::Base
+
+  include Findable::InstanceMethods
+  
   has_many :books
   has_many :branches, through: :books
   has_many :awards, through: :books
@@ -18,5 +23,10 @@ class ServiceMember < ActiveRecord::Base
 
   def self.find_by_slug(slugged_name)
     self.all.detect {|n| n.slug == slugged_name}
+  end
+
+  def add_book(book)
+    book.service_member = self unless book.service_member == self
+    self.books << book unless self.books.include?(book)
   end
 end

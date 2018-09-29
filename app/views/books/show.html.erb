@@ -1,1 +1,22 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<% if @logged_in %>
+  <h1><%= @book.book_name%></h1>
+  <h3>Unit Information</h3>
+  <div id=unit_information>
+    <ul>
+      <li>Unit: <%= @book.unit_name %></li>
+      <li>Security Clearance: <%= @book.security_clearance_level %></li>
+      <li>First Line Supervisor: <%= @book.firstline_supervisor_name %></li>
+      <li>First Line Supervisor Email: <%= @book.firstline_supervisor_email %></li>
+      <li>First Line Supervisor Phone Number: <%= @book.firstline_supervisor_phone %></li>
+      <li>Commander: <%= @book.commander_name %></li>
+      <li>Commander Email: <%= @book.commander_email %></li>
+      <li>Commander Phone Number: <%= @book.commander_phone %></li>
+    </ul>
+  </div>
+  <form action="/service_members/<%= @book.service_member.slug %>">
+    <input type="submit" value="Home">
+  </form>
+  <form action="/books/<%= @book.id %>">
+    <input type="submit" value="Edit">
+  </form>
+<% end %>
