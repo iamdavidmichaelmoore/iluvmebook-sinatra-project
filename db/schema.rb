@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180924222316) do
+ActiveRecord::Schema.define(version: 20180929022332) do
 
   create_table "awards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20180924222316) do
     t.string "unit_name"
     t.string "security_clearance_level"
     t.string "firstline_supervisor_name"
-    t.string "firstline_supervistor_email"
-    t.string "firstline_supervistor_phone"
+    t.string "firstline_supervisor_email"
+    t.string "firstline_supervisor_phone"
     t.string "commander_name"
     t.string "commander_email"
     t.string "commander_phone"
