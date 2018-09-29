@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180929165837) do
+ActiveRecord::Schema.define(version: 20180929215315) do
 
   create_table "awards", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180929165837) do
     t.string   "issue_date"
     t.string   "issuing_command_unit"
     t.string   "location"
-    t.binary   "award_name"
+    t.string   "award_name"
   end
 
   create_table "books", force: :cascade do |t|
