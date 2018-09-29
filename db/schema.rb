@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180929215315) do
+ActiveRecord::Schema.define(version: 20180929162645) do
 
   create_table "awards", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.string   "name"
     t.string   "issue_date"
     t.string   "issuing_command_unit"
     t.string   "location"
-    t.string   "award_name"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "books", force: :cascade do |t|
