@@ -16,7 +16,7 @@ class AwardsController < ApplicationController
     if award.save && logged_in?
       current_book.add_award(award)
     end
-    redirect "/awards"
+    redirect "/books/#{current_book.id}"
   end
 
   # GET: /awards/5

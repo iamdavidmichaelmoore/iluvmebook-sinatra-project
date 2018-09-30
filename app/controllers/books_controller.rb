@@ -7,6 +7,7 @@ class BooksController < ApplicationController
 
   # GET: /books/new
   get "/books/new" do
+    @current_user = current_user
     erb :"/books/new.html"
   end
 

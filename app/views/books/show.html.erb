@@ -35,7 +35,7 @@
 </div>
 <h3>Awards</h3>
 <div class="awards">
-<% @book.service_member.awards.all.each do |award| %>
+<% @book.awards.each do |award| %>
   <ul>
   <% award.attributes.each do |attr| %>
     <li><%= attr.last%></li>
