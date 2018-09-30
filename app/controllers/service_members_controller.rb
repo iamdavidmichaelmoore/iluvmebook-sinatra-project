@@ -1,15 +1,27 @@
 class ServiceMembersController < ApplicationController
 
   get "/" do
-    erb :welcome
+    if logged_in?
+      redirect "/service_members/#{current_user.slug}"
+    else
+      erb :welcome
+    end
   end
 
   get '/service_members/signup' do 
-    erb :"/service_members/new.html"
+    if logged_in?
+      redirect "/service_members/#{current_user.slug}"
+    else
+      erb :"/service_members/new.html"
+    end
   end
 
   get '/service_members/login' do
-    redirect "/"
+    if logged_in?
+      redirect "/service_members/#{current_user.slug}"
+    else
+      redirect "/"
+    end
   end
 
   post '/service_members/login' do

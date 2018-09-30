@@ -35,7 +35,7 @@ class BooksController < ApplicationController
   get "/books/:id" do
     @book = Book.find_by(id: params[:id])
     if @book && logged_in? && current_user.id == @book.service_member_id
-      @logged_in = session[:user_id]
+      session[:book_id] = params[:id]
       erb :"/books/show.html"
     elsif @book.nil? && logged_in?
       redirect "/service_members/#{current_user.slug}"
@@ -51,7 +51,7 @@ class BooksController < ApplicationController
 
   # PATCH: /books/5
   patch "/books/:id" do
-    redirect "/books/:id"
+      redirect "/books/:id"
   end
 
   # DELETE: /books/5/delete
@@ -59,13 +59,20 @@ class BooksController < ApplicationController
     redirect "/books"
   end
 
-   helpers do
+  helpers do
     def logged_in?
       !!session[:user_id]
     end
 
     def current_user
      ServiceMember.find(session[:user_id])
+    end
+
+    def current_book
+      match = current_user.books.find(session[:book_id])
+      if match
+        Book.find(session[:book_id])
+      end
     end
   end
 end

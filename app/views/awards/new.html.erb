@@ -1,1 +1,25 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h1>Add New Award</h1>
+<form class="new_form" action="/awards" method="POST">
+    <p>
+      <label for="award[name]">Name:</label>
+      <input name="award[name]" type="text" required="required" />
+    </p>
+    </>
+      <label for="award[issue_date]">Issue Date:</label>
+      <input name="award[issue_date]" type="text" required="required" />
+    </p>
+    <p>
+      <label for="award[issuing_command_unit]">Issuing Command/Unit:</label>
+      <input name="award[issuing_command_unit]" type="text" />
+    </p>
+    <p>
+      <label for="award[location]">Location:</label>
+      <input name="award[location]" type="text" />
+    </p>
+  <p>
+    <input type="submit" value="Add Award" />
+  </p>
+</form>
+<form action="/service_members/login">
+  <input type="submit" value="Cancel" />
+</form>

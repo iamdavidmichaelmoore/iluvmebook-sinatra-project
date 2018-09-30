@@ -6,5 +6,10 @@ class Book < ActiveRecord::Base
   
   belongs_to :service_member
   belongs_to :branch
-  belongs_to :award
+  has_many :awards
+
+  def add_award(award)
+    award.books << self unless award.books.include?(self)
+    self.awards << award unless self.awards.include?(award)
+  end
 end

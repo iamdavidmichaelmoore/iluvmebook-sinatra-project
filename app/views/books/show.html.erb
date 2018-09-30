@@ -1,54 +1,60 @@
-<% if @logged_in %>
-  <h1><%= @book.book_name%></h1>
-  <h3>General Information</h3>
-  <div class="general_information">
-    <h4>Name</h4>
-    <p>
-      <%= @book.service_member.first_name %> <%= @book.service_member.last_name %>
-    </p>
-    <h4>Branch</h4>
-    <p>
-      <%= @book.branch.name %>
-    </p>
-    <h4>Current Rank</h4>
-    <p>
-      <%= @book.current_rank %>
-    </p>
-  </div>
-  <h3>Unit Information</h3>
-  <div class="unit_information">
-    <ul>
-      <li>Unit: <%= @book.unit_name %></li>
-      <li>Security Clearance: <%= @book.security_clearance_level %></li>
-      <li>First Line Supervisor: <%= @book.firstline_supervisor_name %></li>
-      <li>First Line Supervisor Email: <%= @book.firstline_supervisor_email %></li>
-      <li>First Line Supervisor Phone Number: <%= @book.firstline_supervisor_phone %></li>
-      <li>Commander: <%= @book.commander_name %></li>
-      <li>Commander Email: <%= @book.commander_email %></li>
-      <li>Commander Phone Number: <%= @book.commander_phone %></li>
-    </ul>
-  </div>
-  <h3>Evaluations</h3>
-  <div class="evaluations">
-    <ul>
-      <li></li>
-    </ul>
-  </div>
-  <h3>Awards</h3>
-  <div class="awards">
-    <ul>
-      <li></li>
-    </ul>
-  </div>
-  <div class="duty_locations">
-    <ul>
-      <li></li>
-    </ul>
-  </div>
-  <form action="/service_members/<%= @book.service_member.slug %>">
-    <input type="submit" value="Home">
-  </form>
-  <form action="/books/<%= @book.id %>">
-    <input type="submit" value="Edit">
-  </form>
+<h1><%= @book.book_name%></h1>
+<h3>General Information</h3>
+<div class="general_information">
+  <h4>Name</h4>
+  <p>
+    <%= @book.service_member.first_name %> <%= @book.service_member.last_name %>
+  </p>
+  <h4>Branch</h4>
+  <p>
+    <%= @book.branch.name %>
+  </p>
+  <h4>Current Rank</h4>
+  <p>
+    <%= @book.current_rank %>
+  </p>
+</div>
+<h3>Unit Information</h3>
+<div class="unit_information">
+  <ul>
+    <li>Unit: <%= @book.unit_name %></li>
+    <li>Security Clearance: <%= @book.security_clearance_level %></li>
+    <li>First Line Supervisor: <%= @book.firstline_supervisor_name %></li>
+    <li>First Line Supervisor Email: <%= @book.firstline_supervisor_email %></li>
+    <li>First Line Supervisor Phone Number: <%= @book.firstline_supervisor_phone %></li>
+    <li>Commander: <%= @book.commander_name %></li>
+    <li>Commander Email: <%= @book.commander_email %></li>
+    <li>Commander Phone Number: <%= @book.commander_phone %></li>
+  </ul>
+</div>
+<h3>Evaluations</h3>
+<div class="evaluations">
+  <ul>
+    <li></li>
+  </ul>
+</div>
+<h3>Awards</h3>
+<div class="awards">
+<% @book.service_member.awards.all.each do |award| %>
+  <ul>
+  <% award.attributes.each do |attr| %>
+    <li><%= attr.last%></li>
+  <% end %>
+  </ul>
 <% end %>
+  <form action="/awards/new">
+    <input type="submit" value="Add Award">
+  </form>
+</div>
+<h3>Duty Locations</h3>
+<div class="duty_locations">
+  <ul>
+    <li></li>
+  </ul>
+</div>
+<form action="/service_members/<%= @book.service_member.slug %>">
+  <input type="submit" value="Home">
+</form>
+<form action="/books/<%= @book.id %>">
+  <input type="submit" value="Edit">
+</form>

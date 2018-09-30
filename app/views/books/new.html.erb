@@ -1,5 +1,5 @@
-<h1>Create New iLoveMeBook</h1>
-<form action="/books" method="POST">
+<h1>Add New Book</h1>
+<form class="new_form" action="/books" method="POST">
   <p>
     <label for="book[book_name]">Book Name:</label>
     <input name="book[book_name]" type="text" />
@@ -63,6 +63,9 @@
     <input name="book[commander_phone]" type="text"/>
   </p>
   <p>
-    <input type="submit" value="Create Book" />
+    <input type="submit" value="Add Book" />
   </p>
+</form>
+<form action="/service_members/<%= @current_user.slug %>">
+  <input type="submit" value="Cancel">
 </form>
