@@ -51,5 +51,4 @@ ActiveRecord::Schema.define(version: 20180930014029) do
     t.text     "first_name"
     t.text     "last_name"
   end
-
 end

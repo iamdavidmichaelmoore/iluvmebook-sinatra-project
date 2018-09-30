@@ -6,4 +6,4 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  poo: 5
+  pool: 5
