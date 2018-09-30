@@ -1,4 +1,4 @@
-<!-- Models:
+Models:
 service member
 book
 branch
@@ -27,10 +27,10 @@ Postgres Binary Data Type - https://www.postgresql.org/docs/7.3/static/jdbc-bina
 
 SQLite3 Data Types - https://www.sqlite.org/datatype3.html
 
-
+Screenshots and screencasts - https://help.ubuntu.com/stable/ubuntu-help/screen-shot-record.html
 
 
 Notes to self:
 
 -Go to the 'Activity' tab to see the Release Log.
--trying to get heroku working again -->
+-trying to get heroku working again

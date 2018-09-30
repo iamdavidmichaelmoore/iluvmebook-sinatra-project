@@ -27,31 +27,45 @@
     <li>Commander Phone Number: <%= @book.commander_phone %></li>
   </ul>
 </div>
-<h3>Evaluations</h3>
+<!-- <h3>Evaluations</h3>
 <div class="evaluations">
-  <ul>
-    <li></li>
-  </ul>
-</div>
+  <div class="single-evaluation">
+    <ul>
+      <li></li>
+    </ul>
+  </div>
+  <form action="/evaluations/new">
+    <input type="submit" value="Add Evaluation">
+  </form>
+</div> -->
 <h3>Awards</h3>
 <div class="awards">
 <% @book.awards.each do |award| %>
-  <ul>
-  <% award.attributes.each do |attr| %>
-    <li><%= attr.last%></li>
-  <% end %>
-  </ul>
+  <div class="single-award">
+    <ul>
+      <li><%= award.name %></li>
+      <li><%= award.issue_date %></li>
+      <li><%= award.issuing_command_unit %></li>
+      <li><%= award.location %></li>
+    </ul>
+  </div>
 <% end %>
   <form action="/awards/new">
     <input type="submit" value="Add Award">
   </form>
 </div>
+<!--
 <h3>Duty Locations</h3>
-<div class="duty_locations">
-  <ul>
-    <li></li>
-  </ul>
-</div>
+<div class="locations">
+  <div class="single-location">
+    <ul>
+      <li></li>
+    </ul>
+  </div>
+  <form action="/locations/new">
+    <input type="submit" value="Add Location">
+  </form>
+</div> -->
 <form action="/service_members/<%= @book.service_member.slug %>">
   <input type="submit" value="Home">
 </form>

@@ -9,7 +9,11 @@ class ServiceMembersController < ApplicationController
   end
 
   get '/service_members/signup' do 
+    if logged_in?
+      redirect "/service_members/#{current_user.slug}"
+    else
       erb :"/service_members/new.html"
+    end
   end
 
   get '/service_members/login' do
