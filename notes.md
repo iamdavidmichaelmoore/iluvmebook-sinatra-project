@@ -1,4 +1,4 @@
-Models:
+<!-- Models:
 service member
 book
 branch
@@ -33,4 +33,4 @@ SQLite3 Data Types - https://www.sqlite.org/datatype3.html
 Notes to self:
 
 -Go to the 'Activity' tab to see the Release Log.
--trying to get heroku working again
+-trying to get heroku working again -->
