@@ -55,6 +55,8 @@ GEM
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
     rack (2.0.5)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (2.0.4)
       rack
     rack-test (1.1.0)
@@ -127,6 +129,7 @@ DEPENDENCIES
   foreman
   pg (= 0.20)
   pry
+  rack-flash3
   rack-test
   rails_12factor
   rake

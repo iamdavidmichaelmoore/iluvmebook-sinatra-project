@@ -1,5 +1,7 @@
 <% if @logged_in %>
-  <p>Welcome back, <%= @sm.first_name %>!</p>
+  <% if flash.has?(:message) %>
+    <div class="flash-message"><%= flash[:message] %></div>
+  <% end %>
   <h1>My I Love Me Book</h1>
   <ul>
   <% @sm.books.each do |book| %>
@@ -8,6 +10,9 @@
   </ul>
   <form action="/books/new">
     <input type="submit" value="New Book">
+  </form>
+  <form action="/service_members/<%= @sm.slug %>/edit">
+    <input type="submit" value="Edit Account">
   </form>
   <form action="/service_members/logout">
     <input type="submit" value="Log Out" />

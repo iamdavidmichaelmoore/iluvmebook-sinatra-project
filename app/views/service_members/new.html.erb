@@ -12,9 +12,16 @@
       <label for="service_member[email]">Email:</label>
       <input name="service_member[email]" type="email" required="required" />
     </p>
+    <% if flash.has?(:message) %>
+      <div class="flash-message"><%= flash[:message] %></div>
+    <% end %>
     <p>
       <label for="service_member[password]">Password:</label>
-      <input name="service_member[password]" type="password" maxength="30" required="required"/>
+      <input name="service_member[password]" type="password" maxength="30" required="required" />
+    </p>
+    <p>
+      <label for="service_member[confirm_password]">Confirm Password:</label>
+      <input name="service_member[confirm_password]" type="password" maxength="30" required="required" />
     </p>
   <p>
     <input type="submit" value="Create Account" />

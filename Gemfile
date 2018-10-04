@@ -11,6 +11,7 @@ gem 'pg', '0.20'
 gem 'rails_12factor'
 gem 'foreman'
 gem 'dotenv'
+gem 'rack-flash3'
 
 group :development do
   gem "tux"

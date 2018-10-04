@@ -21,8 +21,8 @@
     self.first_name + " " + self.last_name
   end
 
-  def self.find_by_slug(slugged_name)
-    self.all.detect {|n| n.slug == slugged_name}
+  def self.find_by_slug_and_id(slugged_name, user_id)
+    self.all.detect {|n| n.slug == slugged_name && n.id == user_id}
   end
 
   def add_book(book)

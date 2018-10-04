@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180930014029) do
+ActiveRecord::Schema.define(version: 20181003214037) do
 
   create_table "awards", force: :cascade do |t|
     t.string   "name"
@@ -46,10 +46,11 @@ ActiveRecord::Schema.define(version: 20180930014029) do
   create_table "service_members", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.text     "first_name"
     t.text     "last_name"
+    t.string   "confirm_password"
   end
 
 end

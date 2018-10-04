@@ -1,1 +1,34 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Update User Account Information</h1>
+<form class="form" action="/service_members/<%= @sm.slug %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch" />
+    <p>
+      <label for="service_member[first_name]">First Name:</label>
+      <input name="service_member[first_name]" type="text" value="<%= @sm.first_name %>" />
+    </p>
+    <p>
+      <label for="service_member[last_name]">Last Name:</label>
+      <input name="service_member[last_name]" type="text" value="<%= @sm.last_name %>" />
+    </p>
+    <p>
+      <label for="service_member[email]">Email:</label>
+      <input name="service_member[email]" type="email" value="<%= @sm.email %>" />
+    </p>
+    <% if flash.has?(:message) %>
+      <div class="flash-message"><%= flash[:message] %></div>
+    <% end %>
+    <script src="./lib/public/javascripts/pwordconfirm.js"></script>
+    <p>
+      <label for="service_member[password]">New Password:</label>
+      <input name="service_member[password]" type="password" maxength="30" id="password" />
+    </p>
+    <p>
+      <label for="service_member[confirm_password]">Confirm New Password:<span id='message'></span></label>
+      <input name="service_member[confirm_password]" type="password" maxength="30" id="confirm_password" />
+    </p>
+    <p>
+      <input type="submit" value="Update Account" />
+    </p>
+</form>
+<form action="/service_members/<%= @sm.slug %>" >
+  <input type="submit" value="Cancel" />
+</form>
