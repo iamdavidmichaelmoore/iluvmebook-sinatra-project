@@ -1,20 +1,24 @@
-<% if @logged_in %>
-  <% if flash.has?(:message) %>
+  <h1>My Account</h1>
+   <% if flash.has?(:message) %>
     <div class="flash-message"><%= flash[:message] %></div>
   <% end %>
-  <h1>My I Love Me Book</h1>
-  <ul>
-  <% @sm.books.each do |book| %>
-      <li><a href="/books/<%= book.id %>"><%= book.book_name %></a></li>
-  <% end %>
-  </ul>
-  <form action="/books/new">
-    <input type="submit" value="New Book">
-  </form>
   <form action="/service_members/<%= @sm.slug %>/edit">
-    <input type="submit" value="Edit Account">
+    <input type="submit" value="Edit Account Information">
   </form>
+
   <form action="/service_members/logout">
     <input type="submit" value="Log Out" />
   </form>
-<% end %>
+  <h2>Books</h2>
+  <div class="books">
+    <ul>
+      <% @sm.books.each do |book| %>
+        <li><a href="/books/<%= book.id %>"><%= book.book_name %></a></li>
+      <% end %>
+    </ul>
+    <br></br>
+    <form action="/books/new">
+      <input type="submit" value="New Book">
+    </form>
+  </div>
+  

@@ -1,1 +1,65 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Edit General and Unit Information</h1>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<form id="new-form" action="/books" method="POST">
+  <p>
+    <label for="book[book_name]">Book Name:</label>
+    <input name="book[book_name]" type="text" value="<%= @book.book_name %>"/>
+  </p>
+  <p>
+    <label for="book[current_rank]">Current Rank:</label>
+    <input name="book[current_rank]" type="text" value="<%= @book.current_rank %>"/>
+  </p>
+  <p>
+  <label for="book[branch]">Branches:</label>
+  <select name="book[branch]">
+    <% Branch.all.each do |branch| %>
+      <option id="<% branch.name %>" value="<%= branch.id %>" <%= 'selected' if @book.branch.id == branch.id %>> <%= branch.name %></option>
+    <% end %>
+  </select>
+  </p>
+  <p>
+    <label for="book[unit_name]">Unit Name:</label>
+    <input name="book[unit_name]" type="text" value="<%= @book.unit_name %>" />
+  </p>
+  <p>
+    <label for="book[security_clearance_level]">Security Clearance Level:</label>
+    <select name="book[security_clearance_level]">
+      <option value="None">None</option>
+      <option value="Confidential">Confidential</option>
+      <option value="Secret">Secret</option>
+      <option value="Top Secret">Top Secret</option>
+    </select>
+  </p>
+  <p>
+    <label for="book[firstline_supervisor_name]">First Line Supervisor Name:</label>
+    <input name="book[firstline_supervisor_name]" type="text" value="<%= @book.firstline_supervisor_name %>" />
+  </p>
+  <p>
+    <label for="book[firstline_supervisor_email]">First Line Supervisor Email:</label>
+    <input name="book[firstline_supervisor_email]" type="text" value="<%= @book.firstline_supervisor_email %>" />
+  </p>
+  <p>
+    <label for="book[firstline_supervisor_phone]">First Line Supervisor Phone:</label>
+    <input name="book[firstline_supervisor_phone]" type="text"value="<%= @book.firstline_supervisor_phone %>" />
+  </p>
+  <p>
+    <label for="book[commander_name]">Commander Name:</label>
+    <input name="book[commander_name]" type="text" value="<%= @book.commander_name %>" />
+  </p>
+  <p>
+    <label for="book[commander_email]">Commander Email:</label>
+    <input name="book[commander_email]" type="text" value="<%= @book.commander_email %>" />
+  </p>
+  <p>
+    <label for="book[commander_phone]">Commander Phone:</label>
+    <input name="book[commander_phone]" type="text" value="<%= @book.commander_phone %>" />
+  </p>
+  <p>
+    <input type="submit" value="Update Book" />
+  </p>
+</form>
+<form id="button" action="/books/<%= @book.id %>">
+  <input type="submit" value="Cancel">
+</form>

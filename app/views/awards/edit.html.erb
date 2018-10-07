@@ -1,1 +1,26 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Edit Award</h1>
+
+<form id="new-form" action="/books/<%= @award.book_id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch" />
+  <p>
+    <label for="award[name]">Name:</label>
+    <input name="award[name]" type="text" value="<%= @award.name %>" />
+  </p>
+    <label for="award[issue_date]">Issue Date:</label>
+    <input name="award[issue_date]" type="text" value="<%= @award.issue_date %>" />
+  </p>
+  <p>
+    <label for="award[issuing_command_unit]">Issuing Command/Unit:</label>
+    <input name="award[issuing_command_unit]" type="text" value="<%= @award.issuing_command_unit %>" />
+  </p>
+  <p>
+    <label for="award[location]">Location:</label>
+    <input name="award[location]" type="text" value="<%= @award.location %>" />
+  </p>
+  <p>
+    <input type="submit" value="Update Award" />
+  </p>
+</form>
+<form id="button" action="/awards/<%= @award.id %>">
+  <input type="submit" value="Cancel" />
+</form>

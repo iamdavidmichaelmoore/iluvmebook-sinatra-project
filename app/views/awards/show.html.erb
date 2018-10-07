@@ -1,1 +1,17 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<% if flash.has?(:message) %>
+  <div class="flash-message"><%= flash[:message] %></div>
+<% end %>
+<h1>My <%= @award.name %></h1>
+<div class="single-award">
+  <ul>
+    <li>Issue Date: <%= @award.issue_date %></li>
+    <li> Issuing Command/Unit: <%= @award.issuing_command_unit %></li>
+    <li>Location: <%= @award.location %></li>
+  </ul>
+  <form id="button" action="/awards/<%= @award.id %>/edit">
+    <input type="submit" value="Edit Award">
+  </form>
+  <form id="button" action="/books/<%= @award.book_id %>">
+    <input type="submit" value="Book">
+  </form>
+</div>

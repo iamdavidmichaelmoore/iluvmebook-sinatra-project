@@ -1,1 +1,9 @@
-<h1>This is the Model's index page.</h1>
+<h1>All of your awards.</h1>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<% @awards.each do |award| %>
+  <ul>
+    <li><a href="/awards/<%= award.id %>"><%= award.name %></a></li>
+  </ul>
+<% end %>

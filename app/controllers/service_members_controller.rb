@@ -73,8 +73,7 @@ class ServiceMembersController < ApplicationController
 
   get "/service_members/:slug" do
     @sm = ServiceMember.find_by_slug_and_id(params[:slug], current_user.id) 
-    if @sm && logged_in? && current_user.id
-      @logged_in = session[:user_id]
+    if @sm && logged_in?
       erb :"/service_members/show.html"
     elsif @sm.nil? && logged_in?
       redirect "/service_members/#{current_user.slug}"
@@ -85,9 +84,11 @@ class ServiceMembersController < ApplicationController
 
   get "/service_members/:slug/edit" do
     @sm = ServiceMember.find_by_slug_and_id(params[:slug], current_user.id)
-    if logged_in? && current_user.id
+    if @sm && logged_in?
       @logged_in = session[:user_id]
       erb :"/service_members/edit.html"
+    elsif @sm.nil? && logged_in?
+      redirect "/service_members/#{current_user.slug}"
     else
       redirect "/service_members/login"
     end

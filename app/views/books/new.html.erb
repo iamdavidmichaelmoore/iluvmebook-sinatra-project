@@ -1,5 +1,8 @@
 <h1>Add New Book</h1>
-<form class="new_form" action="/books" method="POST">
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<form id="new-form" action="/books" method="POST">
   <p>
     <label for="book[book_name]">Book Name:</label>
     <input name="book[book_name]" type="text" />
@@ -9,20 +12,11 @@
     <input name="book[current_rank]" type="text" />
   </p>
   <p>
-  <label for="book[branch]">Branches:</label>
-  <select name="book[branch]">
-    <option value="Air Force">Air Force</option>
-    <option value="Air Force Reserve">Air Force Reserve</option>
-    <option value="Air National Guard">Air National Guard</option>
-    <option value="Army">Army</option>
-    <option value="Army Reserve">Army Reserve</option>
-    <option value="Army National Guard">Army National Guard</option>
-    <option value="Coast Guard">Coast Guard</option>
-    <option value="Coast Guard Reserve">Coast Guard Reserve</option>
-    <option value="Marine Corps">Marine Corps</option>
-    <option value="Marine Corps Reserve">Marine Corps Reserve</option>
-    <option value="Navy">Navy</option>
-    <option value="Navy Reserve">Navy Reserve</option>
+  <label for="branch[id]">Branches:</label>
+  <select name="branch[id]" type="text">
+    <% Branch.all.each do |branch| %>
+      <option id="<% branch.name %>" value="<%= branch.id %>"><%= branch.name %></option>
+    <% end %>
   </select>
   </p>
   <p>
@@ -66,6 +60,6 @@
     <input type="submit" value="Add Book" />
   </p>
 </form>
-<form action="/service_members/<%= @current_user.slug %>">
+<form id="button" action="/books">
   <input type="submit" value="Cancel">
 </form>

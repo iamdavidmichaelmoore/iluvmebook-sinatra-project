@@ -1,4 +1,7 @@
 <h1>Add New Award</h1>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 <form class="new_form" action="/awards" method="POST">
     <p>
       <label for="award[name]">Name:</label>

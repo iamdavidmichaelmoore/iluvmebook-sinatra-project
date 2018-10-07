@@ -1,61 +1,60 @@
 class BooksController < ApplicationController
 
-  # GET: /books
+  use Rack::Flash
+  
   get "/books" do
-    erb :"/books/index.html"
+    if logged_in?
+      @books = current_user.books.all
+      erb :"/books/index.html"
+    else
+      redirect "/"
+    end
   end
 
-  # GET: /books/new
   get "/books/new" do
-    @current_user = current_user
     erb :"/books/new.html"
   end
 
-  # POST: /books
   post "/books" do
-    book = Book.create(
-      book_name: params[:book][:book_name],
-      unit_name: params[:book][:unit_name],
-      security_clearance_level: params[:book][:security_clearance_level],
-      firstline_supervisor_name: params[:book][:firstline_supervisor_name],
-      firstline_supervisor_email: params[:book][:firstline_supervisor_email],
-      firstline_supervisor_phone: params[:book][:firstline_supervisor_phone],
-      commander_name: params[:book][:commander_name],
-      commander_email: params[:book][:commander_email],
-      commander_phone: params[:book][:commander_phone],
-      current_rank: params[:book][:current_rank]
-    )
+    book = Book.create(params[:book])
     if book.save && logged_in?
-      book.branch = Branch.find_or_create_by(name: params[:book][:branch])
+      book.branch = Branch.find_or_create_by(id: params[:branch][:id])
       current_user.add_book(book)
+      flash[:message] = "#{book.book_name} was successfully added!"
+      redirect "/books/#{book.id}"
+    else
+      flash[:message] = "something went wrong. Try adding a book again."
+      redirect "books/new"
     end
-    redirect "/service_members/#{current_user.slug}"
   end
 
-  # GET: /books/5
   get "/books/:id" do
     @book = Book.find_by(id: params[:id])
-    if @book && logged_in? && current_user.id == @book.service_member_id
+    if @book && current_user.id == @book.service_member_id
       session[:book_id] = params[:id]
       erb :"/books/show.html"
     elsif @book.nil? && logged_in?
-      redirect "/service_members/#{current_user.slug}"
+      redirect "/books"
     else
-      redirect "/service_members/login"
+      redirect "/"
     end
   end
 
-  # GET: /books/5/edit
   get "/books/:id/edit" do
-    erb :"/books/edit.html"
+    @book = Book.find_by(id: params[:id])
+    if logged_in?
+      erb :"/books/edit.html"
+    elsif @book.nil? && logged_in?
+      redirect "/books"
+    else
+      redirect "/"
+    end
   end
 
-  # PATCH: /books/5
   patch "/books/:id" do
       redirect "/books/:id"
   end
 
-  # DELETE: /books/5/delete
   delete "/books/:id/delete" do
     redirect "/books"
   end
